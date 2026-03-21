@@ -1,0 +1,52 @@
+{
+  "name": "sentinai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next -p 5000",
+    "dev:webpack": "next -p 5000 --webpack",
+    "build": "next build",
+    "start": "next start -p 5000",
+    "lint": "next lint",
+    "push": "git push",
+    "pull": "git pull",
+    "pr": "gh pr create --web",
+    "gpush": "node scripts/git-push.js"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.10",
+    "aos": "^2.3.4",
+    "axios": "^1.13.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.34.3",
+    "gasp": "^0.0.2",
+    "gsap": "^3.14.2",
+    "lucide-react": "^0.544.0",
+    "next": "^16.1.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-markdown": "^10.1.0",
+    "react-syntax-highlighter": "^16.1.0",
+    "recharts": "^3.5.0",
+    "remark-gfm": "^4.0.1",
+    "socket.io-client": "^4.8.1",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/aos": "^3.0.7",
+    "@types/node": "^20.14.12",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9.39.3",
+    "eslint-config-next": "^0.2.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.6.3"
+  }
+}

@@ -1,0 +1,72 @@
+import os 
+import logging 
+from pathlib import Path 
+from dotenv import load_dotenv 
+load_dotenv ()
+_worker_dir =Path (__file__ ).resolve ().parent .parent 
+load_dotenv (_worker_dir /'.env')
+OPENROUTER_API_KEY =os .getenv ('OPENROUTER_API_KEY')
+OPENROUTER_API_URL ='https://openrouter.ai/api/v1/chat/completions'
+MINIMAX_MODEL =os .getenv ('MINIMAX_MODEL','minimax/minimax-m2.7')
+AGENT_MODEL =os .getenv ('AGENT_MODEL',MINIMAX_MODEL )
+INDEXER_MODEL =os .getenv ('INDEXER_MODEL','openai/gpt-oss-120b')
+CHEAP_MODEL =os .getenv ('CHEAP_MODEL','qwen/qwen3.5-9b')
+SMART_MODEL =os .getenv ('SMART_MODEL','z-ai/glm-5')
+TIER2_MODEL =os .getenv ('OPENROUTER_TIER2_MODEL',SMART_MODEL )
+TIER1_OPENROUTER_TIMEOUT_SECONDS =int (os .getenv ('TIER1_OPENROUTER_TIMEOUT_SECONDS','900'))
+COMPACTION_CHEAP_MODEL =os .getenv ('COMPACTION_CHEAP_MODEL',CHEAP_MODEL )
+WORKER_SECRET =os .getenv ('WORKER_SECRET')
+DEEPWIKI_DOCS_DIR ='./deepwiki_docs'
+os .makedirs (DEEPWIKI_DOCS_DIR ,exist_ok =True )
+MAX_WORKERS =25 
+DETECTOR_MIN_CONFIDENCE =float (os .getenv ('DETECTOR_MIN_CONFIDENCE',6.0 ))
+PHASE1_CONFIDENCE_THRESHOLD =float (os .getenv ('PHASE1_CONFIDENCE_THRESHOLD',6.0 ))
+PHASE2_CONFIDENCE_THRESHOLD =float (os .getenv ('PHASE2_CONFIDENCE_THRESHOLD',6.0 ))
+FREE_TIER_PHASE2_MAX_FINDINGS =int (os .getenv ('FREE_TIER_PHASE2_MAX_FINDINGS',8 ))
+PHASE2_VALIDATION_MAX_PARALLEL =int (os .getenv ('PHASE2_VALIDATION_MAX_PARALLEL',20 ))
+PHASE2_VALIDATION_TIMEOUT_SECONDS =int (os .getenv ('PHASE2_VALIDATION_TIMEOUT_SECONDS',90 ))
+PHASE2_VALIDATION_MAX_RETRIES =int (os .getenv ('PHASE2_VALIDATION_MAX_RETRIES',2 ))
+AGENTIC_CONFIDENCE_CEILING =float (os .getenv ('AGENTIC_CONFIDENCE_CEILING',8.5 ))
+AGENTIC_TIER3_MAX_TOOL_CALLS_PER_FINDING =int (os .getenv ('AGENTIC_TIER3_MAX_TOOL_CALLS_PER_FINDING',3 ))
+AGENTIC_TIER3_MAX_TOOL_CALLS_PER_SCAN =int (os .getenv ('AGENTIC_TIER3_MAX_TOOL_CALLS_PER_SCAN',60 ))
+AGENTIC_TIER4_MAX_TOOL_CALLS_PER_FINDING =int (os .getenv ('AGENTIC_TIER4_MAX_TOOL_CALLS_PER_FINDING',5 ))
+AGENTIC_TIER4_MAX_TOOL_CALLS_PER_SCAN =int (os .getenv ('AGENTIC_TIER4_MAX_TOOL_CALLS_PER_SCAN',120 ))
+TIER4_AGENTIC_CONFIDENCE_FLOOR =float (os .getenv ('TIER4_AGENTIC_CONFIDENCE_FLOOR',7.0 ))
+ENABLE_TIER23_SAFE_ESCALATION =os .getenv ('ENABLE_TIER23_SAFE_ESCALATION','true').lower ()=='true'
+TIER23_SAFE_ESCALATION_KEYWORD_COUNT =int (os .getenv ('TIER23_SAFE_ESCALATION_KEYWORD_COUNT',3 ))
+VALIDATOR_DEBUG =os .getenv ('VALIDATOR_DEBUG','0').strip ()in ('1','true','yes')
+SKEPTIC_PASS_ENABLED =os .getenv ('SKEPTIC_PASS_ENABLED','true').lower ()=='true'
+SKEPTIC_CVSS_THRESHOLD =float (os .getenv ('SKEPTIC_CVSS_THRESHOLD','7.0'))
+SKEPTIC_MAX_PARALLEL =int (os .getenv ('SKEPTIC_MAX_PARALLEL','6'))
+SKEPTIC_DEBUG =os .getenv ('SKEPTIC_DEBUG','0').strip ()in ('1','true','yes')
+ENABLE_CONTEXT_COMPACTION =os .getenv ('ENABLE_CONTEXT_COMPACTION','true').lower ()=='true'
+COMPACTION_MIN_CHARS =int (os .getenv ('COMPACTION_MIN_CHARS',20000 ))
+COMPACTION_USE_CHEAP_LLM =os .getenv ('COMPACTION_USE_CHEAP_LLM','true').lower ()=='true'
+COMPACTION_LLM_MAX_CANDIDATES =int (os .getenv ('COMPACTION_LLM_MAX_CANDIDATES',220 ))
+COMPACTION_CHEAP_MODEL_TIMEOUT_SECONDS =int (os .getenv ('COMPACTION_CHEAP_MODEL_TIMEOUT_SECONDS',45 ))
+COMPACTION_MAX_DROP_RATIO =float (os .getenv ('COMPACTION_MAX_DROP_RATIO',0.35 ))
+REDIS_HOST =os .getenv ('REDIS_HOST','localhost')
+REDIS_PORT =int (os .getenv ('REDIS_PORT',6379 ))
+REDIS_OPTIONAL =os .getenv ('REDIS_OPTIONAL','0').strip ()in ('1','true','yes')
+SCAN_TTL =3600 
+PROJECT_CACHE_TTL =int (os .getenv ('PROJECT_CACHE_TTL',21600 ))
+AGENT_SCAN_ENABLED =os .getenv ('AGENT_SCAN_ENABLED','true').lower ()=='true'
+AGENT_AGENTIC_ENABLED =os .getenv ('AGENT_AGENTIC_ENABLED','true').lower ()=='true'
+AGENT_AGENTIC_MAX_ROUNDS =int (os .getenv ('AGENT_AGENTIC_MAX_ROUNDS','10'))
+AGENT_PARALLEL_TIMEOUT_SECONDS =int (os .getenv ('AGENT_PARALLEL_TIMEOUT','120'))
+AGENT_OPENROUTER_TIMEOUT_SECONDS =int (os .getenv ('AGENT_OPENROUTER_TIMEOUT_SECONDS','240'))
+AGENT_MAX_FILE_TOKENS =int (os .getenv ('AGENT_MAX_FILE_TOKENS','50000'))
+AGENT_CHAIN_COMBINER_ENABLED =os .getenv ('AGENT_CHAIN_COMBINER_ENABLED','true').lower ()=='true'
+AGENT_ATTACK_PATH_SIMULATOR_ENABLED =os .getenv ('AGENT_ATTACK_PATH_SIMULATOR_ENABLED','true').lower ()=='true'
+AGENT_REMEDIATION_ENABLED =os .getenv ('AGENT_REMEDIATION_ENABLED','true').lower ()=='true'
+SCAN_DIFF_ENABLED =os .getenv ('SCAN_DIFF_ENABLED','true').lower ()=='true'
+SCAN_DIFF_EXPAND_DEPTH =int (os .getenv ('SCAN_DIFF_EXPAND_DEPTH','2'))
+DEPENDENCY_SCANNER_ENABLED =os .getenv ('DEPENDENCY_SCANNER_ENABLED','true').lower ()=='true'
+OSV_API_URL =os .getenv ('OSV_API_URL','https://api.osv.dev/v1/query')
+GIT_CONTEXT_ENABLED =os .getenv ('GIT_CONTEXT_ENABLED','true').lower ()=='true'
+AGENT_LLM_SECURITY_ENABLED =os .getenv ('AGENT_LLM_SECURITY_ENABLED','true').lower ()=='true'
+HIGH_RECALL_MODE =os .getenv ('HIGH_RECALL_MODE','false').lower ()in ('1','true','yes')
+FP_FILTER_STRICTNESS =os .getenv ('FP_FILTER_STRICTNESS','strict').lower ()
+LOG_SERVER_URL =(os .getenv ('LOG_SERVER_URL')or '').rstrip ('/')
+logging .basicConfig (level =logging .INFO )
+logger =logging .getLogger ('ScannerWorker-Py3.14')

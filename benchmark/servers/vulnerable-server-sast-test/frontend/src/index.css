@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; }
+a { color: #6c9bcf; }
+input, button { padding: 8px 12px; margin: 4px; border-radius: 6px; border: 1px solid #444; }
+button { cursor: pointer; background: #3d5a80; color: #fff; }
+button:hover { background: #4d6a90; }
+.container { max-width: 900px; margin: 0 auto; padding: 24px; }
+.card { background: #16213e; padding: 20px; border-radius: 10px; margin: 16px 0; }
+pre { background: #0f0f1a; padding: 12px; overflow: auto; font-size: 13px; }

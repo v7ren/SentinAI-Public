@@ -1,0 +1,36 @@
+{
+  "name": "taskflow-api",
+  "version": "1.0.0",
+  "description": "TaskFlow multi-tenant project management REST API",
+  "author": "TaskFlow Inc",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "build": "echo 'No build step'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/",
+    "migrate": "psql -h $DB_HOST -U $DB_USER -d $DB_NAME -f ../database/schema.sql",
+    "seed": "psql -h $DB_HOST -U $DB_USER -d $DB_NAME -f ../database/seed.sql"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.0",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.3.1",
+    "express": "4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "jsonwebtoken": "8.5.1",
+    "libxmljs": "0.19.7",
+    "lodash": "4.17.15",
+    "multer": "1.4.4",
+    "pg": "^8.11.3",
+    "stripe": "^14.10.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
