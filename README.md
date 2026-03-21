@@ -1,4 +1,4 @@
-# SentinAI v4
+<h1 align="center">SentinAI v4 — Thesis-oriented notes (problems, design claims, evaluation hooks)</h1>
 
 <p align="center">
   <a href="https://zread.ai/v7ren/SentinAI-Public">
