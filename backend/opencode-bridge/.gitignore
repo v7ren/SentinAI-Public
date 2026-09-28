@@ -1,0 +1,6 @@
+/opencode-bridge
+/opencode-bridge.exe
+node_modules/
+*.exe
+*.test
+*.out

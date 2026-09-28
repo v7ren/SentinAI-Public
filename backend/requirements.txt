@@ -1,0 +1,23 @@
+# Flask and web server
+flask>=2.3.0
+flask-cors>=4.0.0
+werkzeug>=2.3.0
+
+# HTTP client
+httpx>=0.24.0
+requests>=2.31.0
+
+# Database
+sqlalchemy>=2.0.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# Rate limiting (optional)
+flask-limiter>=3.5.0
+
+# Security
+bcrypt>=4.0.0
+
+# Redis (required for worker enrichment pipeline: file_deps, call_graph, sanitizer_registry, dead_code_map)
+redis>=4.0.0

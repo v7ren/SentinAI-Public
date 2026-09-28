@@ -1,0 +1,68 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+node_modules/
+# testing
+/coverage
+# production
+/build
+/temp
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+.env.benchmark
+CLAUDE.md
+# Python virtual environments
+env/
+venv/
+.venv/
+/tests
+# JSON databases (local data)
+sentinel_db.json
+sentinel_db*.json
+*_db.json
+*.db
+backend/users.db
+# Scan result JSON exports (per-scan folders)
+backend/scan_results/
+deepwiki_docs/
+backend/deepwiki_docs/
+backend/worker/core/deepwiki_docs/
+backend/worker/data/agent_logs/
+benchmark/
+benchmark-server/
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+/.cursor/
+/.claude/
+/.pytest_cache/
+/.vscode/
+/.idea/
+# Snyk Security Extension - AI Rules (auto-generated)
+.github/instructions/snyk_rules.instructions.md

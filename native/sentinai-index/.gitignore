@@ -1,0 +1,6 @@
+/target/
+*.pyd
+*.so
+*.dll
+.venv/
+__pycache__/

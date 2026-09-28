@@ -1,0 +1,15 @@
+{
+  "name": "sentinai",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "desktop",
+    "backend/opencode-bridge"
+  ],
+  "scripts": {
+    "dev": "npm run tauri --workspace=desktop -- dev",
+    "desktop": "npm run tauri --workspace=desktop -- dev",
+    "bridge": "npm start --workspace=opencode-bridge",
+    "build": "npm run build --workspace=desktop"
+  }
+}
